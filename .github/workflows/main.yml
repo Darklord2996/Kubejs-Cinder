@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+    - master
+name: deploy to darka mc server
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: 4791.node.apexhosting.gdn
+        username: Darklord2996.1976442
+        password: ${{ secrets.ftp_password }}
+        server-dir: ./default/
+    - name: 🛜 Rcon Reload
+      uses: wolfigster/rcon-action@v1.0.2
+      with:
+        server: ${{ secrets.Rcon_server }}
+        port: 5100
+        password: ${{ secrets.Rcon_password }}
+        commands: '["reload"]'
