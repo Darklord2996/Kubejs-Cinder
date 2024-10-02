@@ -25,5 +25,3 @@ ForgeEvents.onEvent("net.minecraftforge.event.level.BlockEvent$PortalSpawnEvent"
     player.statusMessage = Text.of("The portal doesn't seem to want to light...");
     server.schedule(2 * 1000, () => player.statusMessage = Text.of("You seem to require something that can contain hellish heat"));
 });
-
-// Really dude abusing FTP acess to manualy add shit? thats a no go conisider your ass revoked and this Push to revert your changes server side. 
