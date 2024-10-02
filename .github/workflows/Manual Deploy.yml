@@ -1,6 +1,7 @@
 on:
   workflow_dispatch:
 name: Manual Deploy
+jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
